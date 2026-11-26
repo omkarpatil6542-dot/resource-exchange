@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Academic Resource Exchange | LPU Student Project</title>
+
+   <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav id="home">
+        <h2>📚 Campus Resource Exchange</h2>
+        <div>
+            <a href="#home">Home</a>
+            <a href="#resources">Resources</a>
+            <a href="#post">Post Item</a>
+            <a href="#about">About</a>
+        </div>
+    </nav>
+
+    <!-- Welcome Section -->
+    <div class="welcome">
+        <h1>Share More, Spend Less!</h1>
+        <p>
+            A student-made academic resource exchange concept for Lovely Professional University.
+            <br>
+            Find, share, donate, and exchange useful college materials.
+        </p>
+        <a class="button" href="#resources">Explore Resources</a>
+    </div>
+
+    <!-- Resources Section -->
+    <section class="container" id="resources">
+        <h2 class="section-title">Our Academic Resources</h2>
+       <div class="filters" onchange="filterItems()">
+    <label>
+        Semester
+        <select id="filterSemester">
+            <option value="all">All Semesters</option>
+            <option value="1">Semester 1</option>
+            <option value="2">Semester 2</option>
+            <option value="3">Semester 3</option>
+            <option value="4">Semester 4</option>
+            <option value="5">Semester 5</option>
+            <option value="6">Semester 6</option>
+            <option value="7">Semester 7</option>
+            <option value="8">Semester 8</option>
+        </select>
+    </label>
+
+    <label>
+        Branch
+        <select id="filterBranch">
+            <option value="all">All Branches</option>
+            <option>CSE</option>
+            <option>ME</option>
+            <option>ECE</option>
+            <option>Civil</option>
+        </select>
+    </label>
+
+    <label>
+        Price
+        <select id="filterPrice">
+            <option value="all">All Prices</option>
+            <option value="free">Free / Donation</option>
+            <option value="under300">Under ₹300</option>
+        </select>
+    </label>
+</div>
+
+<p id="noResults" hidden>Koi matching item nahi mila.</p>
+        <!-- Category Links -->
+        <div class="filters">
+            <a href="#textbooks">Textbooks</a>
+            <a href="#equipment">Engineering Equipment</a>
+            <a href="#electronics">Electronics</a>
+            <a href="#post">Post Your Item</a>
+        </div>
+
+        <div class="menu">
+            <!-- Item 1 -->
+           <article class="item" id="textbooks" data-semester="1" data-branch="all" data-price="">
+                <div class="art">📘</div>
+                <div class="details">
+                    <span class="tag">Textbook · Semester 1</span>
+                    <h3>Engineering Mathematics Book</h3>
+                    <p>
+                        Condition: Good<br>
+                        Branch: CSE / All Engineering<br>
+                        Sample seller: Student A
+                    </p><div class="price">₹300</div>
+                    <button type="button" class="button" onclick="showContact('Student A')">Seller Contact</button>
+
+                </div>
+            </article>
+
+            <!-- Item 2 -->
+           <article class="item" data-semester="1" data-branch="all" data-price="free">
+                <div class="art">📗</div>
+                <div class="details">
+                    <span class="tag">Textbook · Semester 1</span>
+                    <h3>Engineering Physics Notes</h3>
+                    <p>
+                        Condition: Like New<br>
+                        Branch: All Engineering<br>
+                        Sample seller: Student B
+                    </p>
+                    <div class="price">Free</div>
+                    <button type="button" class="button" onclick="showContact('Student B')">Seller Contact</button>
+
+                </div>
+            </article>
+
+            <!-- Item 3 -->
+            <article class="item" id="equipment" data-semester="1" data-branch="all" data-price="250">
+                <div class="art">📐</div>
+                <div class="details">
+                    <span class="tag">Engineering Equipment</span>
+                    <h3>Engineering Drafter</h3>
+                    <p>
+                        Condition: Good<br>
+                        Branch: ME / Civil / All<br>
+                        Sample seller: Student C
+                    </p>
+                    <div class="price">₹250</div>
+                    <button type="button" class="button" onclick="showContact('Student C')">Seller Contact</button>
+
+                </div>
+            </article>
+
+            <!-- Item 4 -->
+           <article class="item" data-semester="1" data-branch="all" data-price="150">
+                <div class="art">🥼</div>
+                <div class="details">
+                    <span class="tag">Lab Equipment</span>
+                    <h3>Laboratory Coat</h3>
+                    <p>
+                        Condition: Good<br>
+                        Branch: All Engineering<br>
+                        Sample seller: Student D
+                    </p>
+                    <div class="price">₹150</div>
+                    <button type="button" class="button" onclick="showContact('Student D')">Seller Contact</button>
+
+                </div>
+            </article>
+
+            <!-- Item 5 -->
+          <article class="item" id="electronics" data-semester="1" data-branch="all" data-price="300">
+                <div class="art">🧮</div>
+                <div class="details">
+                    <span class="tag">Electronics</span>
+                    <h3>Scientific Calculator</h3>
+                    <p>
+                        Condition: Good<br>
+                        Branch: All Engineering<br>
+                        Sample seller: Student E
+                    </p>
+                    <div class="price">₹300</div>
+                   <button type="button" class="button" onclick="showContact('Student E')">Seller Contact</button>
+
+                </div>
+            </article>
+
+            <!-- Item 6 -->
+            <article class="item" data-semester="1" data-branch="CSE ECE" data-price="donation">
+                <div class="art">🔌</div>
+                <div class="details">
+                    <span class="tag">Electronics</span>
+                    <h3>Arduino Starter Kit</h3>
+                    <p>
+                        Condition: Like New<br>
+                        Branch: CSE / ECE<br>
+                        Sample seller: Student F
+                    </p>
+                    <div class="price">Donation</div>
+                   <button type="button" class="button" onclick="showContact('Student F')">Seller Contact</button>
+
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Post Item Form -->
+    <section class="post-section" id="post">
+        <div class="container">
+            <h2 class="section-title">Post Your Item</h2>
+            <p class="subtitle">A demonstration form for adding academic resources</p>
+
+            <form class="form-box" action="#post" method="get">
+                <label for="name">Your Name</label>
+                <input id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="title">Item Name</label>
+                <input id="title" name="item" placeholder="e.g. Mathematics Book" required>
+
+                <label for="category">Category</label>
+                <select id="category" name="category">
+                    <option>Textbook</option>
+                    <option>Engineering Equipment</option>
+                    <option>Lab Equipment</option>
+                    <option>Electronics</option>
+                </select>
+
+                <label for="semester">Semester</label>
+                <select id="semester" name="semester">
+                    <option>Semester 1</option>
+                    <option>Semester 2</option>
+                    <option>Semester 3</option>
+                    <option>Semester 4</option>
+                    <option>Semester 5</option>
+                    <option>Semester 6</option>
+                    <option>Semester 7</option>
+                    <option>Semester 8</option>
+                </select>
+
+                <label for="branch">Branch</label>
+                <select id="branch" name="branch">
+                    <option>CSE</option>
+                    <option>ME</option>
+                    <option>ECE</option>
+                    <option>Civil</option>
+                    <option>All Branches</option>
+                </select>
+
+                <label for="price">Price (₹)</label>
+                <input id="price" name="price" placeholder="Enter price or write Free / Donation">
+
+                <label for="condition">Item Condition</label>
+                <select id="condition" name="condition">
+                    <option>New</option>
+                    <option>Like New</option>
+                    <option>Good</option>
+                    <option>Used</option>
+                </select>
+
+                <label for="photo">Item Photo</label>
+                <input id="photo" type="file" accept="image/*">
+
+                <label for="description">Description / Contact Details</label>
+                <textarea id="description" name="description" placeholder="Write a short description and how a student can contact you"></textarea>
+
+                <button class="button" type="submit">Submit Item</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Project Information Footer -->
+    <footer id="about">
+        <h3>Student Academic Resource Exchange System</h3>
+        <p>First Semester Web Development Project</p>
+        <p>Lovely Professional University (LPU) · Student-created demonstration</p>
+
+        <p>
+            <strong>Project Holder:</strong> <br>
+           1.Mohit Kushwaha · B.Tech AI &amp; ML · Semester 1 <br>
+           2·Omkar Patil · B.Tech AI &amp; ML · Semester 1 <br>
+           3.Nikhil Shinde · B.Tech AI &amp; ML · Semester 1
+        </p>
+        <p>Made using HTML &amp; CSS &amp; JAVASCRIPT</p>
+    </footer>
+    <script src="style.js"></script>
+</body>
+</html>
+ 
